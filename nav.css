@@ -7,6 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    width: 100vw;
 }
 
 
@@ -52,10 +53,10 @@ body {
 
 /* Main content */
 main {
-    margin-left: 20%;
+    /* margin-left: 20%; */
     padding: 20px;
     background-color: #fff;
-    height: 100vh;
+    /* height: 100vh; */
     color: #212121;
 }
 
@@ -66,6 +67,18 @@ main h1 {
 main p {
     font-size: 18px;
     color: #212121;
+}
+
+
+.first{
+    margin-left: 20%;
+}
+
+.second{
+    /* margin-left: 20%; */
+    /* width: 100vw; */
+    /* overflow-x: hidden; */
+   
 }
 
 /* .min{
