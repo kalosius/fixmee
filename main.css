@@ -14,7 +14,13 @@
     box-sizing: border-box;
     border: 1px solid #0098D3;
     border-radius: 20px;
+    transition: all 0.3s ease;
 
+
+}
+.search-box input[type="text"]:focus {
+    border-color: green;
+    outline: none;
 }
 
 
