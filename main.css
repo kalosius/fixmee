@@ -1,5 +1,30 @@
+/* Search box */
+
+.search-box {
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 8%;
+}
+
+.search-box input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    box-sizing: border-box;
+}
+
+.search-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+}
+
+
+/* Welcome and input */
 .welcome{
-    border: 1px solid red;
     text-align: center;
 
 
@@ -13,3 +38,40 @@
 .dif{
     color: #0098D3;
 }
+
+
+/* form */
+.frm{
+    /* border: 1px solid red; */
+    margin-top: 5%;
+    text-align: center;
+}
+
+form .inputfields input, select{
+    margin-right: 20px;
+    padding: 20px 30px;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    width: 30%;
+}
+
+.inputfields button{
+    margin-right: 20px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    background-color: #0098D3;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+select{
+    cursor: pointer;
+}
+
+.check{
+    margin-top: 30px;
+}
+
+
+
