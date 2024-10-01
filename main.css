@@ -164,3 +164,53 @@ select{
     /* margin-left: px; */
 }
 
+
+
+.help{
+    /* border: 1px solid red; */
+
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 20vh;
+
+}
+
+.helpbtn{
+    margin-top: 40px;
+    
+}
+
+.helpbtn button{
+    padding: 20px 30px;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.helpbtn .btn1{
+    background-color: #0098D3;
+    color: #FFFFFF;
+}
+.helpbtn .btn1:hover{
+    background-color: #0088BD;
+    
+}
+
+.helpbtn .btn2{
+    color: #0098D3;
+    border: 1px solid #e7e5e5;
+    background: transparent;
+}
+
+.helpbtn .btn2:hover{
+    border: 1px solid #0098D3;
+    
+}
+
+
+
+
+
+
