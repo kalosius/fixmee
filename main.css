@@ -256,3 +256,8 @@ select{
 
 
 
+footer{
+    border-top: 2px solid black;
+    height: 30vh;
+    background-color: #212121;
+}
