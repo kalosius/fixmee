@@ -12,7 +12,7 @@ body {
 
 .sidenav {
     height: 100%;
-    width: 250px; 
+    width: 20%; 
     position: fixed;
     z-index: 1;
     top: 0;
@@ -52,10 +52,11 @@ body {
 
 /* Main content */
 main {
-    margin-left: 250px;
+    margin-left: 20%;
     padding: 20px;
     background-color: #fff;
     height: 100vh;
+    color: #212121;
 }
 
 main h1 {
@@ -64,13 +65,13 @@ main h1 {
 
 main p {
     font-size: 18px;
-    color: #333;
+    color: #212121;
 }
 
-.min{
+/* .min{
         display: flex;
         /* border: 1px solid red; */
-}
+/* }
 
 
 .min div{
@@ -81,7 +82,7 @@ main p {
 
 .min img{
     width: 100%;
-}
+} */ 
 
 
 
