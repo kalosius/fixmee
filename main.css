@@ -98,6 +98,10 @@ select{
     color: #FFFFFF;
 }
 
+.second-items h1{
+    font-size: 40px;
+}
+
 .secbuttons button{
 
     padding: 20px 30px;
@@ -107,5 +111,41 @@ select{
 
 }
 
+
+/* Review section */
+.review{
+    margin-left: 20%;
+    text-align: center;
+}
+
+.cards{
+    /* border: 1px solid red; */
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /* height: 50vh; */
+    display: flex;
+    /* margin-right: 10px; */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-item{
+    /* border: 1px solid blue; */
+    /* padding: 30px; */
+    flex-basis: 50%;
+    /* width: 33px; */
+    /* margin-left: 2px; */
+    /* flex-wrap: wrap; */
+    
+
+}
+
+.image{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10%;
+}
 
 
