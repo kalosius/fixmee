@@ -14,15 +14,15 @@
         <nav>
             <div class="sidenav">
                 <br>
-                <img src="./logo1.png" alt="" width="200px">
+                <img src="{% static 'images/homeimages/logo1.png' %}" alt="" width="200px">
                 <!-- <h2>FixMe</h2> -->
-                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
                 <a href="#"><i class="fas fa-map-marker-alt"></i> Find Repair Location</a>
                 <a href="#"><i class="fas fa-tools"></i> Get Mechanic</a>
                 <a href="#"><i class="fas fa-car"></i> Washing Bay</a>
                 <a href="#"><i class="fas fa-car-side"></i> Your Car</a>
-                <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
-                <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="{% url 'contact' %}"><i class="fas fa-phone-alt"></i> Contact</a>
+                <a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About Us</a>
                 <a href="#"><i class="fas fa-cog"></i> Settings</a>
             </div>
         </nav>
