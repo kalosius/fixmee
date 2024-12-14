@@ -1,35 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixMe-Never Get Stuck on the road</title>
-    <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% extends 'base.html' %}
 
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="sidenav">
-                <br>
-                <img src="./logo1.png" alt="" width="200px">
-                <!-- <h2>FixMe</h2> -->
-                <a href="index.html"><i class="fas fa-home"></i> Home</a>
-                <a href="#"><i class="fas fa-map-marker-alt"></i> Find Repair Location</a>
-                <a href="#"><i class="fas fa-tools"></i> Get Mechanic</a>
-                <a href="#"><i class="fas fa-car"></i> Washing Bay</a>
-                <a href="#"><i class="fas fa-car-side"></i> Your Car</a>
-                <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
-                <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
-                <a href="#"><i class="fas fa-cog"></i> Settings</a>
-            </div>
-        </nav>
-    </header>
-
-
-    <main>
+{% block content %}
+    
+    
         <section class="first">
 
             <div class="search-box">
@@ -205,24 +178,4 @@
             </div>
         </section>
 
-    </main>
-
-
-    <footer>
-        <div class="footer-links">
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin"></i>
-            <i class="fab fa-facebook"></i>
-            
-        </div>
-
-        <div class="footercopy">
-            &copy;2024 FixMe, Aloisius Kasozi&reg;
-        </div>
-    </footer>
-
-
-</body>
-</html>
-    
+{% endblock %}
