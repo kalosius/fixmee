@@ -1,7 +1,9 @@
 from django.contrib import admin
-from . models import Car, CarBrand,Mechanic,Garage,WashingBay
+from . models import Car, CarBrand,Mechanic,Garage,WashingBay,Contact
 
 # Register your models here.
+
+ 
 @admin.register(WashingBay)
 class WashingBay(admin.ModelAdmin):
     list_display = ['name', 'location']
@@ -25,3 +27,6 @@ class Garage(admin.ModelAdmin):
     list_display = ['name', 'location']
 
 
+@admin.register(Contact)
+class Contact(admin.ModelAdmin):
+    list_display = ['name']

@@ -40,5 +40,8 @@ class Car(models.Model):
     price = models.IntegerField(default=0)
 
 
-
-    
+class Contact(models.Model):
+    name = models.CharField(max_length=20)
+    phone = models.CharField(max_length=14, validators=[MinLengthValidator(10), MaxLengthValidator(14)])
+    email = models.EmailField(validators=[EmailValidator(message="Please enter a valid email address")])
+    message = models.CharField(max_length=200)
