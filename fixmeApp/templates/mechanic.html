@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <h1>All mechanics</h1>
+    </div>
+
+    <br><br>
+    
+    {% for mechanic in mechanic %}
+        <div>{{ mechanic.name }}
+        {{ mechanic.location }}
+       {{ mechanic.phone    }}
+    </div>
+    {% endfor %}
+        
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}
