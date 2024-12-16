@@ -2,6 +2,12 @@ from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator,EmailValidator
 
 # Create your models here.
+class WashingBay(models.Model):
+    name = models.CharField(max_length=20)
+    location = models.CharField(max_length=30)
+    description = models.CharField(max_length=100, null=True, blank=True)
+
+
 class Garage(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
@@ -26,9 +32,9 @@ class CarBrand(models.Model):
 
 
 class Car(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,null=True, blank=True)
     model = models.CharField(max_length=20, null=True, blank=True )
-    vehicle_make = models.ForeignKey(CarBrand, on_delete=models.CASCADE)
+    vehicle_make = models.ForeignKey(CarBrand, on_delete=models.CASCADE,null=True, blank=True)
     description = models.TextField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     price = models.IntegerField(default=0)
