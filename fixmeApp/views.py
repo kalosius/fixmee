@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from . models import CarBrand
 
 # Create your views here.
 def home(request):
-    return render(request, "index.html")
+    brand = CarBrand.objects.all().order_by('brand_name')
+    return render(request, "index.html", {"brand":brand})
 
 def contact(request):
     return render(request, "contact.html")

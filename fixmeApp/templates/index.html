@@ -18,8 +18,15 @@
             <div class="frm">
                 <form action="">
                     <div class="inputfields">
-                        <input type="text" placeholder="Enter Location">
+                        <input type="text" placeholder="Enter Location">     
                         <select name="" id="">
+                            <option value="">Select Brand</option>
+                            {% for brand in brand %}
+                                <option value="{{ brand.id }}">{{ brand.brand_name }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                        <!-- <select name="" id="">
                             <option value="">Select vehicle make</option>
                             <option value="">Acura</option>
                             <option value="">Alfa Romero</option>
@@ -69,7 +76,7 @@
                             <option value="">Toyota</option>
                             <option value="">Volkswagen</option>
                             <option value="">Volvo</option>
-                        </select>
+                        </select> -->
                         <button>&RightArrow;</button>
                     </div>
                     <div class="check">
