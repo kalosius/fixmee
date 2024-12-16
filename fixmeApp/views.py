@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from . models import CarBrand,Mechanic,Garage
+from . models import CarBrand,Mechanic,Garage,WashingBay
 
 # Create your views here.
 def washingbay(request):
-    return render(request, 'bay.html', {})
+    washingbay = WashingBay.objects.all()
+    return render(request, 'washingbay.html', {'washingbay':washingbay})
 
 def repairlocation(request):
     garage = Garage.objects.all()

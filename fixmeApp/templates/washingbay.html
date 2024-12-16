@@ -5,5 +5,14 @@
     Washing Bays
 </div>
 
+<div>
+    
+    {% for bay in washingbay %}
+        <div>Name: {{ bay.name }} <br>Location: {{ bay.location    }}</div>
+    {% endfor %}
+        
+</div>
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock %}
