@@ -174,3 +174,14 @@ main p {
     outline: none;
 }
 
+
+/* bootstrap css */
+.container-fluid{
+    padding-left: 23% !important;
+}
+
+.navbar{
+    /* background-color: #141414 !important; */
+border-bottom: 1px solid black ;
+color: white !important;
+}
