@@ -3,5 +3,5 @@ from . models import Contact
 
 
 class ContactForm(forms.ModelForm):
-    form = Contact
+    Model = Contact
     fields = ['name', 'phone', 'email', 'message']

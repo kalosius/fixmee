@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from . models import CarBrand,Mechanic,Garage,WashingBay
+from django.shortcuts import render, redirect
+from . models import CarBrand,Mechanic,Garage,WashingBay, Contact
+from . forms import ContactForm
+from django.core.mail import send_mail
 
 # Create your views here.
 def washingbay(request):
@@ -20,9 +22,12 @@ def home(request):
     brand = CarBrand.objects.all().order_by('brand_name')
     return render(request, "index.html", {"brand":brand})
 
-def contact(request):
-    
-    return render(request, "contact.html")
+
+def contact(request): 
+    return render(request, "contact.html", {})
+
+
+   
 
 def about(request):
     return render(request, "about.html")
