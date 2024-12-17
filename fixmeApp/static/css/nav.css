@@ -5,6 +5,18 @@
     line-height: 1.5;
 }
 
+/* bootstrap css */
+.container-fluid{
+    padding-left: 23% !important;
+}
+
+.navbar{
+    /* background-color: #141414 !important; */
+border-bottom: 1px solid black ;
+color: white !important;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -175,13 +187,3 @@ main p {
 }
 
 
-/* bootstrap css */
-.container-fluid{
-    padding-left: 23% !important;
-}
-
-.navbar{
-    /* background-color: #141414 !important; */
-border-bottom: 1px solid black ;
-color: white !important;
-}

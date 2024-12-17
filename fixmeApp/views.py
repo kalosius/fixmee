@@ -4,6 +4,11 @@ from . forms import ContactForm
 from django.core.mail import send_mail
 
 # Create your views here.
+def register(request):
+    return render(request, 'auth/register.html', {})
+def loginUser(request):
+    return render(request, 'auth/login.html', {})
+
 def washingbay(request):
     washingbay = WashingBay.objects.all()
     return render(request, 'washingbay.html', {'washingbay':washingbay})
