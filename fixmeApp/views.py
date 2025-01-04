@@ -7,17 +7,27 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 from .serializers import MechanicSerializer, CarSerializer
-
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 
 # Api for mechanic and cars
+@api_view(['GET', 'POST'])
 def mechanic_list(request):
     #  get all the mechanics
     # serialize them
     # return json
-    mechanic = Mechanic.objects.all()
-    serializer = MechanicSerializer(mechanic, many=True)
-    # return JsonResponse({'mechanic':serializer.data}, safe=False)
-    return JsonResponse({'mechanic':serializer.data})
+    if request.method == 'GET':
+        mechanic = Mechanic.objects.all()
+        serializer = MechanicSerializer(mechanic, many=True)
+        # return JsonResponse({'mechanic':serializer.data}, safe=False)
+        return JsonResponse({'mechanic':serializer.data})
+    
+    if request.method == 'POST':
+        serializer = MechanicSerializer(data=request.data)
+        if serializer.is_valid():
+             serializer.save()
+             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 def car_api(request):
      car = Car.objects.all()
