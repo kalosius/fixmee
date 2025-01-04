@@ -4,8 +4,16 @@ from . forms import ContactForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import JsonResponse
 from django.contrib import messages
+
+
+# Api for mechanic and cars
+# def mechanic_list(request):
+    #  get all the mechanics
+    # serialize them
+    # return json
+
 
 
 def register(request):
