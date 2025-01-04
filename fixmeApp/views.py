@@ -1,19 +1,27 @@
 from django.shortcuts import render, redirect
-from . models import CarBrand,Mechanic,Garage,WashingBay
+from . models import CarBrand,Mechanic,Garage,WashingBay, Car
 from . forms import ContactForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
 from django.contrib import messages
+from django.http import JsonResponse
+from .serializers import MechanicSerializer, CarSerializer
 
 
 # Api for mechanic and cars
-# def mechanic_list(request):
+def mechanic_list(request):
     #  get all the mechanics
     # serialize them
     # return json
+    mechanic = Mechanic.objects.all()
+    serializer = MechanicSerializer(mechanic, many=True)
+    return JsonResponse(serializer.data, safe=False)
 
+def car_api(request):
+     car = Car.objects.all()
+     serializer = CarSerializer(car, many=True)
+     return JsonResponse(serializer.data, safe=False)
 
 
 def register(request):
