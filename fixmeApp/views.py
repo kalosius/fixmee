@@ -16,12 +16,14 @@ def mechanic_list(request):
     # return json
     mechanic = Mechanic.objects.all()
     serializer = MechanicSerializer(mechanic, many=True)
-    return JsonResponse(serializer.data, safe=False)
+    # return JsonResponse({'mechanic':serializer.data}, safe=False)
+    return JsonResponse({'mechanic':serializer.data})
 
 def car_api(request):
      car = Car.objects.all()
      serializer = CarSerializer(car, many=True)
-     return JsonResponse(serializer.data, safe=False)
+    #  return JsonResponse({"car":serializer.data}, safe=False)
+     return JsonResponse({"car":serializer.data})
 
 
 def register(request):
