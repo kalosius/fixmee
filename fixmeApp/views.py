@@ -3,9 +3,11 @@ from . models import CarBrand,Mechanic,Garage,WashingBay
 from . forms import ContactForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
-# Create your views here.
+
+
 def register(request):
         form = UserRegistrationForm()
         if request.method == 'POST':
@@ -25,8 +27,8 @@ def register(request):
 
 def loginUser(request):
         if request.method == "POST":
-            email = request.POST['email']
-            password = request.POST['password']
+            email = request.GET['email']
+            password = request.GET['password']
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
@@ -37,17 +39,19 @@ def loginUser(request):
                 return redirect('login')
         else:
             return render(request, 'auth/login.html', {})
-        
+
+@login_required       
 def logout_user(request):
 	logout(request)
 	messages.success(request, ("You have been logged out...Thanks for stopping by..."))
 	return redirect('home')
 
-
+@login_required
 def washingbay(request):
     washingbay = WashingBay.objects.all()
     return render(request, 'washingbay.html', {'washingbay':washingbay})
 
+@login_required
 def repairlocation(request):
     garage = Garage.objects.all()
     return render(request, 'repair.html', {'garage':garage})
