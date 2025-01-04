@@ -8,7 +8,7 @@
           <div class="card-body">
             <h5 class="card-title text-center mb-4">Register</h5>
             
-            <form action="#" method="POST">
+            <form action="{% url 'register' %}" method="POST">
               {% csrf_token %}
               <!-- First Name -->
               <div class="mb-3">
@@ -42,7 +42,7 @@
   
               <button type="submit" class="btn btn-primary w-100">Register</button>
   
-              <p class="text-center mt-3">Already have an account? <a href="#">Login</a></p>
+              <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Login</a></p>
             </form>
           </div>
         </div>
