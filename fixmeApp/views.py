@@ -27,9 +27,9 @@ def register(request):
 
 def loginUser(request):
         if request.method == "POST":
-            email = request.GET['email']
-            password = request.GET['password']
-            user = authenticate(request, email=email, password=password)
+            username = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
                 messages.success(request, ("You Have Been Logged In!"))
@@ -39,6 +39,7 @@ def loginUser(request):
                 return redirect('login')
         else:
             return render(request, 'auth/login.html', {})
+
 
 @login_required       
 def logout_user(request):
