@@ -6,25 +6,41 @@
                 <p>We are constantly striving to improve our service and would like to hear from you.</p>
             </div>
 
-            <div class="contact-form">
-                <form method="POST">
-                    <label for="">Name*</label>
-                    <input type="text" placeholder="Your Name">
 
-                    <label for="">Phone*</label>
-                    <input type="number" placeholder="+_(___)__-__-__">
+            
+            {% if messages %}
+                
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+                    
+            {% endif %}
+                
 
-                    <label for="">Email*</label>
-                    <input type="email" placeholder="Your Email">
+            
+                
+                <div class="contact-form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label for="name">Name*</label>
+                        <input type="text" name="name" placeholder="Your Name">
 
-                    <label for="">Message</label>
-                    <textarea name="" id="" placeholder="Your Message"></textarea>
+                        <label for="phone">Phone*</label>
+                        <input type="text" name="phone" placeholder="+_(___)__-__-__">
 
-                    <button type="submit">Submit</button>
+                        <label for="email">Email*</label>
+                        <input type="email" name="email" placeholder="Your Email">
 
+                        <label for="message">Message</label>
+                        <textarea name="message" id="" placeholder="Your Message"></textarea>
 
-                </form>
-            </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+           
+                
+
+           
             <br><br><br><br><br>
 
 {% endblock %}

@@ -1,13 +1,29 @@
 from django.shortcuts import render, redirect
-from . models import CarBrand,Mechanic,Garage,WashingBay, Contact
+from . models import CarBrand,Mechanic,Garage,WashingBay
 from . forms import ContactForm
-from django.core.mail import send_mail
-
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
 # Create your views here.
 def register(request):
     return render(request, 'auth/register.html', {})
+
 def loginUser(request):
-    return render(request, 'auth/login.html', {})
+        if request.method == "POST":
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, ("You Have Been Logged In!"))
+                return redirect('home')
+            else:
+                messages.success(request, ("There was an error, please try again..."))
+                return redirect('login')
+        else:
+            return render(request, 'auth/login.html', {})
+
 
 def washingbay(request):
     washingbay = WashingBay.objects.all()
@@ -28,8 +44,16 @@ def home(request):
     return render(request, "index.html", {"brand":brand})
 
 
-def contact(request): 
-    return render(request, "contact.html", {})
+def contact(request):
+    if request.method == "POST": 
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Message Submitted!")
+        else:
+            messages.success(request, "There was an error in the form")
+            form = ContactForm()
+    return render(request, "contact.html")
 
 
    
