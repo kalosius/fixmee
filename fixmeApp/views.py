@@ -11,6 +11,17 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
+@api_view(['GET', 'PUT', 'DELETE'])
+def mechanic_detail(request):
+     if request.method == 'GET':
+          pass
+     elif request.method == 'PUT':
+          pass
+     elif request.method == "DELETE":
+          pass
+     
+     
+
 # Api for mechanic and cars
 @api_view(['GET', 'POST'])
 def mechanic_list(request):
