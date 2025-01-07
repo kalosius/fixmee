@@ -24,11 +24,11 @@ def dashboard(request):
         'mechanics': mechanics, 
         'cars': cars, 
         'bays': bays,
-        'contacts':contacts,
-        # 'garage_count': garages.count(),
-        # 'mechanic_count': mechanics.count(),
-        # 'car_count': cars.count(),
-        # 'bay_count': bays.count(),
+        'contacts': contacts,
+        'garage_count': garages.count(),
+        'mechanic_count': mechanics.count(),
+        'car_count': cars.count(),
+        'contact_count': contacts.count(),
         'garage_created_at': garages.first().created_at if garages.exists() else None,
         'mechanic_created_at': mechanics.first().created_at if mechanics.exists() else None,
         'car_created_at': cars.first().created_at if cars.exists() else None,
@@ -149,6 +149,11 @@ def mechanic(request):
         'mechanic_count': mechanic.count(),
         'mechanic_created_at': mechanic.first().created_at if mechanic.exists() else None
     })
+
+
+def about_mechanic(request, id):
+    mechanic = Mechanic.objects.get(pk=id)
+    return render(request, 'mechanicdetails.html', {'mechanic':mechanic})
 
 
 def home(request):

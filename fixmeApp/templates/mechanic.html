@@ -22,7 +22,7 @@
         <tbody>
             {% for mechanic in mechanic %}
                 <tr>
-                    <td>{{ mechanic.name }}</td>
+                    <td><a href="{% url 'about_mechanic' mechanic.id %}">{{ mechanic.name }}</a></td>
                     <td>{{ mechanic.location }}</td>
                     <td>{{ mechanic.phone }}</td>
                     <td>{{ mechanic.email }}</td>

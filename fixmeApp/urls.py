@@ -15,5 +15,6 @@ urlpatterns = [
     path('car-api/', views.car_api, name="car_api"),
     path('mechanic-api/<int:id>', views.mechanic_detail, name="mechanic"),
     path('dashboard/', views.dashboard, name="dashboard"),
+    path('mechanic_detail/<int:id>', views.about_mechanic, name="about_mechanic"),
 
 ]
