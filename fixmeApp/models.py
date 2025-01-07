@@ -1,17 +1,20 @@
+from django.utils import timezone
 from django.db import models
-from django.core.validators import MinLengthValidator, MaxLengthValidator,EmailValidator
+from django.core.validators import MinLengthValidator, MaxLengthValidator, EmailValidator
 
 # Create your models here.
 class WashingBay(models.Model):
     name = models.CharField(max_length=20)
     location = models.CharField(max_length=30)
     description = models.CharField(max_length=100, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Garage(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     image = models.ImageField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     
 
 class Mechanic(models.Model):
@@ -22,11 +25,13 @@ class Mechanic(models.Model):
     phone = models.CharField(max_length=14, validators=[MinLengthValidator(10), MaxLengthValidator(14)])
     bio = models.CharField(max_length=100, null=True, blank=True)
     dis_img = models.ImageField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     
 
 class CarBrand(models.Model):
     brand_name = models.CharField(max_length=50, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.brand_name
 
@@ -38,6 +43,7 @@ class Car(models.Model):
     description = models.TextField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     price = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Contact(models.Model):

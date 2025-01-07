@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . models import CarBrand,Mechanic,Garage,WashingBay, Car
+from . models import CarBrand,Mechanic,Garage,WashingBay, Car, Contact
 from . forms import ContactForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -11,17 +11,32 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def mechanic_detail(request):
-     if request.method == 'GET':
-          pass
-     elif request.method == 'PUT':
-          pass
-     elif request.method == "DELETE":
-          pass
-     
-     
 
+# Dashboard
+def dashboard(request):
+    garages = Garage.objects.all()
+    mechanics = Mechanic.objects.all()
+    cars = Car.objects.all()
+    bays = WashingBay.objects.all()
+    contacts = Contact.objects.all()
+    return render(request, 'auth/dashboard.html', {
+        'garages': garages, 
+        'mechanics': mechanics, 
+        'cars': cars, 
+        'bays': bays,
+        'contacts':contacts,
+        # 'garage_count': garages.count(),
+        # 'mechanic_count': mechanics.count(),
+        # 'car_count': cars.count(),
+        # 'bay_count': bays.count(),
+        'garage_created_at': garages.first().created_at if garages.exists() else None,
+        'mechanic_created_at': mechanics.first().created_at if mechanics.exists() else None,
+        'car_created_at': cars.first().created_at if cars.exists() else None,
+        'bay_created_at': bays.first().created_at if bays.exists() else None
+    })
+
+
+# https://youtu.be/i5JykvxUk_A
 # Api for mechanic and cars
 @api_view(['GET', 'POST'])
 def mechanic_list(request):
@@ -39,7 +54,29 @@ def mechanic_list(request):
         if serializer.is_valid():
              serializer.save()
              return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
 
+@api_view(['GET', 'PUT', 'DELETE'])
+def mechanic_detail(request, id):
+    try:
+        mechanic = Mechanic.objects.get(pk=id)
+    except Mechanic.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+       serializer = MechanicSerializer(mechanic)
+       return JsonResponse({'mechanic':serializer.data})
+    
+    elif request.method == 'PUT':
+        serializer = MechanicSerializer(mechanic, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        pass
+     
+     
 def car_api(request):
      car = Car.objects.all()
      serializer = CarSerializer(car, many=True)
@@ -89,22 +126,38 @@ def logout_user(request):
 @login_required
 def washingbay(request):
     washingbay = WashingBay.objects.all()
-    return render(request, 'washingbay.html', {'washingbay':washingbay})
+    return render(request, 'washingbay.html', {
+        'washingbay': washingbay,
+        'washingbay_count': washingbay.count(),
+        'washingbay_created_at': washingbay.first().created_at if washingbay.exists() else None
+    })
 
 @login_required
 def repairlocation(request):
     garage = Garage.objects.all()
-    return render(request, 'repair.html', {'garage':garage})
+    return render(request, 'repair.html', {
+        'garage': garage,
+        'garage_count': garage.count(),
+        'garage_created_at': garage.first().created_at if garage.exists() else None
+    })
 
 
 def mechanic(request):
     mechanic = Mechanic.objects.all()
-    return render(request, "mechanic.html", {'mechanic':mechanic})
+    return render(request, "mechanic.html", {
+        'mechanic': mechanic,
+        'mechanic_count': mechanic.count(),
+        'mechanic_created_at': mechanic.first().created_at if mechanic.exists() else None
+    })
 
 
 def home(request):
     brand = CarBrand.objects.all().order_by('brand_name')
-    return render(request, "index.html", {"brand":brand})
+    return render(request, "index.html", {
+        "brand": brand,
+        'brand_count': brand.count(),
+        'brand_created_at': brand.first().created_at if brand.exists() else None
+    })
 
 
 def contact(request):
