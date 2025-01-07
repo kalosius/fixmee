@@ -1,18 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <div>
-        <h1>All mechanics</h1>
+        <br><br>
+        <center><h1>All Mechanics</h1></center>
     </div>
 
     <br><br>
-    
-    {% for mechanic in mechanic %}
-        <div>{{ mechanic.name }}
-        {{ mechanic.location }}
-       {{ mechanic.phone    }}
-    </div>
-    {% endfor %}
-        
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Experience</th>
+                <th>Bio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mechanic in mechanic %}
+                <tr>
+                    <td>{{ mechanic.name }}</td>
+                    <td>{{ mechanic.location }}</td>
+                    <td>{{ mechanic.phone }}</td>
+                    <td>{{ mechanic.email }}</td>
+                    <td>{{ mechanic.experience }} years</td>
+                    <td>{{ mechanic.bio }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     <br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br>
