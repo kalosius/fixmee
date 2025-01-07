@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <style>
   .card-hover:hover {
@@ -81,6 +82,21 @@
     </div>
   </div>
 </div>
+
+<br><br>
+
+<div class="container">
+  <canvas id="statisticsChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var garageCount = "{{ garage_count }}";
+  var mechanicCount = "{{ mechanic_count }}";
+  var carCount = "{{ car_count }}";
+  var contactCount = "{{ contact_count }}";
+</script>
+<script src="{% static 'js/graph.js' %}"></script>
 
 <br><br><br><br><br><br><br>
 
