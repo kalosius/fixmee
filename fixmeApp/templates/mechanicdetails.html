@@ -1,7 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    {{ mechanic.name }}
-    {{ mechanic.location }}
-
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <center><h2>{{ mechanic.name }}</h2></center>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ mechanic.image.url }}" class="img-fluid" alt="{{ mechanic.name }}">
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Location:</strong> {{ mechanic.location }}</p>
+                    <p><strong>Phone:</strong> {{ mechanic.phone }}</p>
+                    <p><strong>Email:</strong> {{ mechanic.email }}</p>
+                    <p><strong>Experience:</strong> {{ mechanic.experience }} years</p>
+                    <p><strong>Bio:</strong> {{ mechanic.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
 {% endblock %}
