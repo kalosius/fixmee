@@ -10,6 +10,8 @@ from .serializers import MechanicSerializer, CarSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.conf import settings
+
 
 
 # Dashboard
@@ -197,3 +199,12 @@ def send_message(request, mechanic_id):
         message.save()
         return redirect('chat_with_mechanic', mechanic_id=mechanic_id)
     return HttpResponse('Invalid request')
+
+
+
+# Map view
+def map_view(request):
+    context = {
+        'AIzaSyCjrryRan9dvFMzA9sqgz6W3SOiedgLn0o': settings.GOOGLE_MAPS_API_KEY,
+    }
+    return render(request, 'map_template.html', context)
