@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fixmeApp',
     'rest_framework',
+    'django_google_maps',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +117,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GOOGLE_MAPS_API_KEY = 'AIzaSyCjrryRan9dvFMzA9sqgz6W3SOiedgLn0o'

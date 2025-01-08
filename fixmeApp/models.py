@@ -2,6 +2,8 @@ from django.utils import timezone
 from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator, EmailValidator
 from django.contrib.auth.models import User
+from django_google_maps import fields as map_fields
+
 
 # Create your models here.
 class WashingBay(models.Model):
@@ -62,3 +64,14 @@ class Message(models.Model):
 
     def __str__(self):
         return f'Message from {self.user.username} to {self.mechanic.name}'
+    
+
+
+
+
+
+
+# google maps
+class Location(models.Model):
+    address = map_fields.AddressField(max_length=200)
+    geolocation = map_fields.GeoLocationField(max_length=100)
