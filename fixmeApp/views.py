@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
-from . models import CarBrand,Mechanic,Garage,WashingBay, Car, Contact
+from django.shortcuts import render, redirect, get_object_or_404
+from . models import CarBrand,Mechanic,Garage,WashingBay, Car, Contact, Message
 from . forms import ContactForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .serializers import MechanicSerializer, CarSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -181,3 +181,19 @@ def contact(request):
 
 def about(request):
     return render(request, "about.html")
+
+
+def chat_with_mechanic(request, mechanic_id):
+    mechanic = get_object_or_404(Mechanic, id=mechanic_id)
+    messages = Message.objects.filter(mechanic=mechanic).order_by('timestamp')
+    return render(request, 'chat_with_mechanic.html', {'mechanic': mechanic, 'messages': messages})
+
+
+def send_message(request, mechanic_id):
+    if request.method == 'POST':
+        message_content = request.POST.get('message')
+        mechanic = get_object_or_404(Mechanic, id=mechanic_id)
+        message = Message.objects.create(mechanic=mechanic, user=request.user, content=message_content)
+        message.save()
+        return redirect('chat_with_mechanic', mechanic_id=mechanic_id)
+    return HttpResponse('Invalid request')

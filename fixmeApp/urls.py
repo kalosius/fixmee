@@ -16,5 +16,6 @@ urlpatterns = [
     path('mechanic-api/<int:id>', views.mechanic_detail, name="mechanic"),
     path('dashboard/', views.dashboard, name="dashboard"),
     path('mechanic_detail/<int:id>', views.about_mechanic, name="about_mechanic"),
-
+    path('chat_with_mechanic/<int:mechanic_id>/', views.chat_with_mechanic, name='chat_with_mechanic'),
+    path('send_message/<int:mechanic_id>/', views.send_message, name='send_message'),
 ]

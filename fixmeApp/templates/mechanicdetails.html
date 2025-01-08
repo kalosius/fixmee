@@ -18,6 +18,18 @@
                     <p><strong>Bio:</strong> {{ mechanic.bio }}</p>
                 </div>
             </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <a href="https://wa.me/{{ mechanic.phone }}" class="btn btn-success btn-block" target="_blank">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{% url 'chat_with_mechanic' mechanic.id %}" class="btn btn-primary btn-block">
+                        Chat within the App
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

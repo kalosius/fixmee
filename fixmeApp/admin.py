@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Car, CarBrand,Mechanic,Garage,WashingBay,Contact
+from .models import Car, CarBrand, Mechanic, Garage, WashingBay, Contact, Message
 
 # Register your models here.
 
@@ -30,3 +30,7 @@ class Garage(admin.ModelAdmin):
 @admin.register(Contact)
 class Contact(admin.ModelAdmin):
     list_display = ['name']
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ['mechanic', 'user', 'content', 'timestamp']
