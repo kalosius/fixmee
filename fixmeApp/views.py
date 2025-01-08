@@ -205,6 +205,6 @@ def send_message(request, mechanic_id):
 # Map view
 def map_view(request):
     context = {
-        'AIzaSyCjrryRan9dvFMzA9sqgz6W3SOiedgLn0o': settings.GOOGLE_MAPS_API_KEY,
+        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
     return render(request, 'map_template.html', context)

@@ -118,4 +118,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyCjrryRan9dvFMzA9sqgz6W3SOiedgLn0o'
+import environ # type: ignore
+import os
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
