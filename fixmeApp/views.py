@@ -220,6 +220,6 @@ def search(request):
         results = Mechanic.objects.filter(
             Q(name__icontains=query) |
             Q(location__icontains=query) |
-            Q(email__icontains=query)
+            Q(email__icontains=query)   
         )
     return render(request, 'search_results.html', {'query': query, 'results': results})
