@@ -19,5 +19,6 @@ urlpatterns = [
     path('chat_with_mechanic/<int:mechanic_id>/', views.chat_with_mechanic, name='chat_with_mechanic'),
     path('send_message/<int:mechanic_id>/', views.send_message, name='send_message'),
     path('map/', views.map_view, name='map_view'),
+    path('search/', views.search, name='search'),
 
 ]

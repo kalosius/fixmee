@@ -11,6 +11,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
+from django.db.models import Q
 
 
 
@@ -208,3 +209,15 @@ def map_view(request):
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
     return render(request, 'map_template.html', context)
+
+
+def search(request):
+    query = request.GET.get('q')
+    results = []
+    if query:
+        results = Mechanic.objects.filter(
+            Q(name__icontains=query) |
+            Q(location__icontains=query) |
+            Q(email__icontains=query)
+        )
+    return render(request, 'search_results.html', {'query': query, 'results': results})
