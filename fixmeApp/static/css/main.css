@@ -290,3 +290,33 @@ footer{
     color: #CCBA72;
 
 }
+
+
+/* 
+@media screen and (max-width: 767px) {
+    .sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidenav a {
+        float: left;
+        padding: 15px;
+    }
+    .sidenav a:hover {
+        background-color: #575757;
+    }
+    .sidenav img {
+        display: none;
+    }
+    .navbar {
+        margin-bottom: 0;
+    }
+    .footer-links {
+        display: flex;
+        justify-content: center;
+    }
+    .footer-links i {
+        margin: 0 10px;
+    }
+} */

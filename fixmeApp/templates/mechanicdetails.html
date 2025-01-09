@@ -7,10 +7,10 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-12">
                     <img src="{{ mechanic.image.url }}" class="img-fluid" alt="{{ mechanic.name }}">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 col-12">
                     <p><strong>Location:</strong> {{ mechanic.location }}</p>
                     <p><strong>Phone:</strong> {{ mechanic.phone }}</p>
                     <p><strong>Email:</strong> {{ mechanic.email }}</p>
@@ -19,12 +19,12 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-6">
+                <div class="col-md-6 col-12 mb-2">
                     <a href="https://wa.me/{{ mechanic.phone }}" class="btn btn-success btn-block" target="_blank">
                         Chat on WhatsApp
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-12">
                     <a href="{% url 'chat_with_mechanic' mechanic.id %}" class="btn btn-primary btn-block">
                         Chat within the App
                     </a>
