@@ -31,11 +31,14 @@
                                 Account
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-                                <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+                                {% endif %}
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{% url 'map_view' %}">Locations</a></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                             </ul>
                         </li>
                         {% if user.is_authenticated %}
