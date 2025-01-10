@@ -6,20 +6,7 @@
                 <p>We are constantly striving to improve our service and would like to hear from you.</p>
             </div>
 
-
-            
-            {% if messages %}
-                
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-                    
-            {% endif %}
-                
-
-            
-                
-                <div class="contact-form">
+        <div class="contact-form">
                     <form method="POST">
                         {% csrf_token %}
                         <label for="name">Name*</label>

@@ -98,7 +98,7 @@ def register(request):
                 messages.success(request, 'Account Created Successfully!')
                 return redirect('login')
             else:
-                messages.error(request, 'An error occured! Pease Try again!')
+                messages.error(request, 'An error occurred! Please try again!')
                 form = UserRegistrationForm()
         return render(request, 'auth/register.html', {'form': form})
 
@@ -111,10 +111,10 @@ def loginUser(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, ("You Have Been Logged In!"))
+                messages.success(request, "You Have Been Logged In!")
                 return redirect('home')
             else:
-                messages.success(request, ("There was an error, please try again..."))
+                messages.error(request, "There was an error, please try again...")
                 return redirect('login')
         else:
             return render(request, 'auth/login.html', {})
@@ -123,7 +123,7 @@ def loginUser(request):
 @login_required       
 def logout_user(request):
 	logout(request)
-	messages.success(request, ("You have been logged out...Thanks for stopping by..."))
+	messages.success(request, "You have been logged out...Thanks for stopping by...")
 	return redirect('home')
 
 @login_required
@@ -175,7 +175,7 @@ def contact(request):
             form.save()
             messages.success(request, "Message Submitted!")
         else:
-            messages.success(request, "There was an error in the form")
+            messages.error(request, "There was an error in the form")
             form = ContactForm()
     return render(request, "contact.html")
 
