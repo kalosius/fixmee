@@ -16,6 +16,8 @@ class WashingBay(models.Model):
 class Garage(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
     image = models.ImageField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     

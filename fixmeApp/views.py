@@ -137,11 +137,18 @@ def washingbay(request):
 
 @login_required
 def repairlocation(request):
-    garage = Garage.objects.all()
+    garages = Garage.objects.all()
+    query = request.GET.get('q')
+    if query:
+        garages = garages.filter(
+            Q(name__icontains=query) |
+            Q(location__icontains=query)
+        )
     return render(request, 'repair.html', {
-        'garage': garage,
-        'garage_count': garage.count(),
-        'garage_created_at': garage.first().created_at if garage.exists() else None
+        'garages': garages,
+        'garage_count': garages.count(),
+        'garage_created_at': garages.first().created_at if garages.exists() else None,
+        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY
     })
 
 
