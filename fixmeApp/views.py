@@ -146,8 +146,6 @@ def repairlocation(request):
         )
     return render(request, 'repair.html', {
         'garages': garages,
-        'garage_count': garages.count(),
-        'garage_created_at': garages.first().created_at if garages.exists() else None,
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY
     })
 
