@@ -41,11 +41,6 @@
                                 <li><a class="dropdown-item" href="{% url 'map_view' %}">Locations</a></li>
                             </ul>
                         </li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">User</a>
-                        </li>
-                        {% endif %}
                     </ul>
                     <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="Search Mechanic" aria-label="Search">
