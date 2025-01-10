@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . models import CarBrand,Mechanic,Garage,WashingBay, Car, Contact, Message
 from . forms import ContactForm, UserRegistrationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -228,3 +228,22 @@ def search(request):
             Q(email__icontains=query)   
         )
     return render(request, 'search_results.html', {'query': query, 'results': results})
+
+@login_required
+def settings_page(request):
+    if request.method == 'POST':
+        user = request.user
+        user.username = request.POST['username']
+        user.email = request.POST['email']
+        user.first_name = request.POST.get('first_name', '')
+        user.last_name = request.POST.get('last_name', '')
+        password = request.POST.get('password', '')
+        if password:
+            user.set_password(password)
+            user.save()
+            update_session_auth_hash(request, user)  # Log the user back in
+        else:
+            user.save()
+        messages.success(request, 'Account settings updated successfully!')
+        return redirect('settings')
+    return render(request, 'auth/settings.html')
