@@ -6,7 +6,7 @@
             <center><h2>Account Settings</h2></center>
         </div>
         <div class="card-body">
-            <form method="post" action="{% url 'settings' %}">
+            <form method="post" action="{% url 'settings' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -28,6 +28,15 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
+                <div class="form-group mt-3">
+                    <label for="profile_image">Profile Image</label>
+                    <input type="file" class="form-control" id="profile_image" name="profile_image">
+                </div>
+                {% if user.userprofile.profile_image %}
+                <div class="form-group mt-3">
+                    <img src="{{ user.userprofile.profile_image.url }}" class="img-fluid" alt="Profile Image">
+                </div>
+                {% endif %}
                 <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
             </form>
         </div>

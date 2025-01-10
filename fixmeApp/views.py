@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from . models import CarBrand,Mechanic,Garage,WashingBay, Car, Contact, Message
-from . forms import ContactForm, UserRegistrationForm
+from .models import CarBrand, Mechanic, Garage, WashingBay, Car, Contact, Message, UserProfile
+from .forms import ContactForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -244,6 +244,13 @@ def settings_page(request):
             update_session_auth_hash(request, user)  # Log the user back in
         else:
             user.save()
+
+        # Handle profile image upload
+        profile, created = UserProfile.objects.get_or_create(user=user)
+        if 'profile_image' in request.FILES:
+            profile.profile_image = request.FILES['profile_image']
+            profile.save()
+
         messages.success(request, 'Account settings updated successfully!')
         return redirect('settings')
     return render(request, 'auth/settings.html')

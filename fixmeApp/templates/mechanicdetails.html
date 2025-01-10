@@ -8,7 +8,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 col-12">
-                    <img src="{{ mechanic.image.url }}" class="img-fluid" alt="{{ mechanic.name }}">
+                    {% if mechanic.dis_img %}
+                    <img src="{{ mechanic.dis_img.url }}" class="img-fluid" alt="{{ mechanic.name }}">
+                    {% else %}
+                    <img src="{% static 'images/default_mechanic.jpg' %}" class="img-fluid" alt="{{ mechanic.name }}">
+                    {% endif %}
                 </div>
                 <div class="col-md-8 col-12">
                     <p><strong>Location:</strong> {{ mechanic.location }}</p>
