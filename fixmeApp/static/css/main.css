@@ -8,7 +8,7 @@
     margin-top: 4%;
 }
 
-.search-box input[type="text"] {
+.search-box form input[type="search"] {
     width: 100%;
     padding: 10px 40px 10px 10px;
     box-sizing: border-box;
@@ -18,13 +18,13 @@
 
 
 }
-.search-box input[type="text"]:focus {
+.search-box form input[type="search"]:focus {
     border-color: green;
     outline: none;
 }
 
 
-.search-box i {
+.search-box form button i {
     position: absolute;
     right: 30px;
     top: 50%;
