@@ -3,6 +3,10 @@ from .models import Car, CarBrand, Mechanic, Garage, WashingBay, Contact, Messag
 
 # Register your models here.
 
+admin.site.site_header = "FixMe Administration"
+admin.site.site_title = "FixMe Admin Portal"
+admin.site.index_title = "Welcome to FixMe Admin"
+
 @admin.register(WashingBay)
 class WashingBayAdmin(admin.ModelAdmin):
     list_display = ['name', 'location']
