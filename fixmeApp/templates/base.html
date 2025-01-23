@@ -45,10 +45,13 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'notifications' %}">
+                            <a class="nav-link position-relative" href="{% url 'notifications' %}">
                                 <i class="fas fa-bell"></i> Notifications
                                 {% if message_count > 0 %}
-                                    <span class="badge badge-danger">{{ message_count }}</span>
+                                    <span class="badge badge-danger position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                        {{ message_count }}
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
                                 {% endif %}
                             </a>
                         </li>
