@@ -135,7 +135,7 @@ def washingbay(request):
         'washingbay_created_at': washingbay.first().created_at if washingbay.exists() else None
     })
 
-@login_required
+# @login_required
 def repairlocation(request):
     garages = Garage.objects.all()
     query = request.GET.get('q')

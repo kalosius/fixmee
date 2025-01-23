@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <style>
   .card-hover:hover {
@@ -7,6 +8,7 @@
     transition: transform 0.3s;
     cursor: pointer;
   }
+  
 
   .col-md-6 a{
     text-decoration: none;
@@ -24,7 +26,7 @@
       <div class="card mb-3 shadow card-hover" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://picsum.photos/202" class="img-fluid rounded-start" alt="Garage Image">
+            <img src="{% static 'images/homeimages/garage.webp' %}" class="img-fluid rounded-start" alt="Garage Image">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -41,7 +43,7 @@
       <div class="card mb-3 shadow card-hover" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://picsum.photos/201" class="img-fluid rounded-start" alt="Mechanic Image">
+            <img src="{% static 'images/homeimages/mechanic.jpeg' %}" class="img-fluid rounded-start" alt="Mechanic Image">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -60,7 +62,7 @@
       <div class="card mb-3 shadow card-hover" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="https://picsum.photos/200" class="img-fluid rounded-start" alt="Vehicle Image">
+            <img src="{% static 'images/homeimages/cars.jpg' %}" class="img-fluid rounded-start" alt="Vehicle Image">
           </div>
           <div class="col-md-8">
             <div class="card-body">
