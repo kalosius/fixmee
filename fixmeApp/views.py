@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 from django.db.models import Q
-
+from django.template.context_processors import request
 
 
 # Dashboard
@@ -194,7 +194,8 @@ def about(request):
 def chat_with_mechanic(request, mechanic_id):
     mechanic = get_object_or_404(Mechanic, id=mechanic_id)
     messages = Message.objects.filter(mechanic=mechanic).order_by('timestamp')
-    return render(request, 'chat_with_mechanic.html', {'mechanic': mechanic, 'messages': messages})
+    message_count = Message.objects.filter(user=request.user, read=False).count()
+    return render(request, 'chat_with_mechanic.html', {'mechanic': mechanic, 'messages': messages, 'message_count': message_count})
 
 
 def send_message(request, mechanic_id):
@@ -254,3 +255,20 @@ def settings_page(request):
         messages.success(request, 'Account settings updated successfully!')
         return redirect('settings')
     return render(request, 'auth/settings.html')
+
+def notifications(request):
+    messages = Message.objects.filter(user=request.user, read=False)
+    context = {
+        'messages': messages,
+    }
+    return render(request, 'notifications.html', context)
+
+# for displaying the message count in the navbar on all pages
+def message_count_processor(request):
+    if request.user.is_authenticated:
+        return {
+            'message_count': Message.objects.filter(user=request.user, read=False).count()
+        }
+    return {
+        'message_count': 0
+    }

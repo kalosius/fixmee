@@ -21,4 +21,5 @@ urlpatterns = [
     path('map/', views.map_view, name='map_view'),
     path('search/', views.search, name='search'),
     path('settings/', views.settings_page, name='settings'),
+    path('notifications/', views.notifications, name='notifications'),
 ]
