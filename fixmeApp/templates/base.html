@@ -43,6 +43,8 @@
                             </ul>
                         </li>
                     </ul>
+                    
+                    {% if user.is_authenticated %}
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link position-relative" href="{% url 'notifications' %}">
@@ -56,6 +58,7 @@
                             </a>
                         </li>
                     </ul>
+                    {% endif %}
                     <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="Search Mechanic" aria-label="Search">
                         <button class="btn btn-outline-info" type="submit">Search</button>
