@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import CarBrand, Mechanic, Garage, WashingBay, Car, Contact, Message, UserProfile
-from .forms import ContactForm, UserRegistrationForm
+from .models import CarBrand, Mechanic, Garage, WashingBay, Car, Message, UserProfile
+from .forms import  UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -21,17 +21,14 @@ def dashboard(request):
     mechanics = Mechanic.objects.all()
     cars = Car.objects.all()
     bays = WashingBay.objects.all()
-    contacts = Contact.objects.all()
     return render(request, 'auth/dashboard.html', {
         'garages': garages, 
         'mechanics': mechanics, 
         'cars': cars, 
         'bays': bays,
-        'contacts': contacts,
         'garage_count': garages.count(),
         'mechanic_count': mechanics.count(),
         'car_count': cars.count(),
-        'contact_count': contacts.count(),
         'garage_created_at': garages.first().created_at if garages.exists() else None,
         'mechanic_created_at': mechanics.first().created_at if mechanics.exists() else None,
         'car_created_at': cars.first().created_at if cars.exists() else None,
@@ -171,24 +168,6 @@ def home(request):
         'brand_count': brand.count(),
         'brand_created_at': brand.first().created_at if brand.exists() else None
     })
-
-
-def contact(request):
-    if request.method == "POST": 
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Message Submitted!")
-        else:
-            messages.error(request, "There was an error in the form")
-            form = ContactForm()
-    return render(request, "contact.html")
-
-
-   
-
-def about(request):
-    return render(request, "about.html")
 
 
 def chat_with_mechanic(request, mechanic_id):

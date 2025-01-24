@@ -50,14 +50,6 @@ class Car(models.Model):
     price = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
-
-class Contact(models.Model):
-    name = models.CharField(max_length=20)
-    phone = models.CharField(max_length=14, validators=[MinLengthValidator(10), MaxLengthValidator(14)])
-    email = models.EmailField(validators=[EmailValidator(message="Please enter a valid email address")])
-    message = models.CharField(max_length=200)
-
-
 class Message(models.Model):
     mechanic = models.ForeignKey(Mechanic, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
