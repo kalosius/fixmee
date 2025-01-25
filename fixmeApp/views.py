@@ -251,3 +251,13 @@ def message_count_processor(request):
     return {
         'message_count': 0
     }
+
+def car_view(request):
+    brand_id = request.GET.get('brand')
+    # Add logic to handle the selected brand
+    return render(request, 'car.html', {'brand_id': brand_id})
+
+def car_detail(request, car_id):
+    car = get_object_or_404(Car, id=car_id)
+    brand_name = car.brand.brand_name  # Ensure this matches the Car model's foreign key to CarBrand
+    return render(request, 'car.html', {'car': car, 'brand_name': brand_name})

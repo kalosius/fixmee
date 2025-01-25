@@ -35,16 +35,23 @@ class Mechanic(models.Model):
     
 
 class CarBrand(models.Model):
-    brand_name = models.CharField(max_length=50, null=True, blank=True)
+    brand_name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.brand_name
 
 
 class Car(models.Model):
+    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE)
+    model = models.CharField(max_length=100)
+    year = models.IntegerField()
+    color = models.CharField(max_length=50)
+    engine = models.CharField(max_length=100)
+    transmission = models.CharField(max_length=100)
+    fuel_type = models.CharField(max_length=50)
+    mileage = models.IntegerField()
+    features = models.JSONField()  # Assuming features are stored as a JSON field
     name = models.CharField(max_length=50,null=True, blank=True)
-    model = models.CharField(max_length=20, null=True, blank=True )
-    vehicle_make = models.ForeignKey(CarBrand, on_delete=models.CASCADE,null=True, blank=True)
     description = models.TextField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     price = models.IntegerField(default=0)

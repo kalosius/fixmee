@@ -20,4 +20,6 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('settings/', views.settings_page, name='settings'),
     path('notifications/', views.notifications, name='notifications'),
+    path('car/', views.car_view, name='car'),
+    path('car/<int:car_id>/', views.car_detail, name='car_detail'),
 ]

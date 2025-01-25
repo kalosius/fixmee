@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <h1>Car Details - {{ brand_name }}</h1>
+</header>
+<main>
+    <section id="car-info">
+        <h2>Basic Information</h2>
+        <p><strong>Make:</strong> {{ car.brand.brand_name }}</p>
+        <p><strong>Model:</strong> {{ car.model }}</p>
+        <p><strong>Year:</strong> {{ car.year }}</p>
+        <p><strong>Color:</strong> {{ car.color }}</p>
+    </section>
+    <section id="car-specs">
+        <h2>Specifications</h2>
+        <p><strong>Engine:</strong> {{ car.engine }}</p>
+        <p><strong>Transmission:</strong> {{ car.transmission }}</p>
+        <p><strong>Fuel Type:</strong> {{ car.fuel_type }}</p>
+        <p><strong>Mileage:</strong> {{ car.mileage }}</p>
+    </section>
+    <section id="car-features">
+        <h2>Features</h2>
+        <ul>
+            <!-- Loop through car features -->
+            {% for feature in car.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %}

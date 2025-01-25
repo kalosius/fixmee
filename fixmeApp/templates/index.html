@@ -17,16 +17,16 @@
                 <p>Choose from 400+ certified auto repair shops and dealerships nationwide.</p>
             </div>
             <div class="frm">
-                <form action="">
+                <form action="{% url 'car' %}" method="get">
                     <div class="inputfields">
                         <input type="text" placeholder="Enter Location">     
-                        <select name="" id="">
+                        <select name="brand" id="">
                             <option value="">Select Brand</option>
                             {% for brand in brand %}
                                 <option value="{{ brand.id }}">{{ brand.brand_name }}</option>
                             {% endfor %}
                         </select>
-                        <button>&RightArrow;</button>
+                        <button type="submit">&RightArrow;</button>
                     </div>
                     <div class="check">
                         <input type="checkbox">
@@ -36,102 +36,6 @@
             </div>
 
 
-        <!-- Second Section
-        <section class="second">
-            <div class="second-items">
-                <h1>One place for all your car needs.</h1>
-                <p>Get help with maintaining your vehicle, fixing problems, and more.</p>
-                <div class="secbuttons">
-                    <button>Car Recalls</button>
-                    <button>Common Problems</button>
-                    <button>Tires</button>
-                    <button>Reliability Ratings</button>
-                </div>
-                <div class="secbuttons">
-                    <button>Symptom Guide</button>
-                    <button>Maintenance Schedule</button>
-                    
-                </div>
-            </div>
-
-        </section>
-
-
-
-        <section class="review">
-            <div class="title">
-                <h2>What others love about Fixme</h2>
-            </div>
-
-            <div class="cards">
-                <div class="card-item">
-                    <p>"You certainly provide a service which allows a customer to feel more confident that they are being serviced at a reasonable price."</p>
-                    <div class="image">
-                        <img src="{% static 'images/homeimages/lizzy.png' %}" alt="">
-                        <div class="imt">
-                            <h1>Lizzy</h1>
-                            <h4>Minneapolis, MN</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <p>"I'm so happy that I found RepairPal. This site really simplifies the process of finding fair prices on parts and labor. Plus, I found a new great mechanic!"</p>
-                    <div class="image">
-                        <img src="{% static 'images/homeimages/gerald.png' %}" alt="">
-                        <div class="imt">
-                            <h1>Gerald</h1>
-                            <h4>Lawrenceville, GA</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <p>"I liked the convenience of RepairPal, and knowing the cost before the repair. Also, I liked the standards and expectations put in place by RepairPal; it takes all of the questions out of the process."</p>
-                    <div class="image">
-                        <img src="{% static 'images/homeimages/louie.png' %}" alt="">
-                        <div class="imt">
-                            <h1>Louie</h1>
-                            <h4>North Kingstown, RI</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-item">
-                    <p>"I liked the convenience of RepairPal, and knowing the cost before the repair. Also, I liked the standards and expectations put in place by RepairPal; it takes all of the questions out of the process."</p>
-                    <div class="image">
-                        <img src="{% static 'images/homeimages/louie.png' %}" alt="">
-                        <div class="imt">
-                            <h1>Louie</h1>
-                            <h4>North Kingstown, RI</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="help">
-                <p>We'd love to help with your next car repair too.</p>
-
-                <div class="helpbtn">
-                    <button class="btn1">Find Repair Location</button>
-                    <button class="btn2">Get an Estimate</button>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="last">
-            <div class="last-content">
-                <h1>Do you own a repair facility?</h1>
-                <p>Do you deliver high quality work and great service? RepairPal's trusted network has millions of people searching for facilities like yours. To get certified, contact us today.</p>
-                <div class="lastbtn">
-                    <button>For Dealerships</button>
-                    <button>For Repair Shops</button>
-                </div>
-
-                <p>Are you curious about the process? <a href="">
-                    Learn about Certification</a></p>
-            </div>
-        </section> -->
         <br><br><br><br>
 
 {% endblock %}

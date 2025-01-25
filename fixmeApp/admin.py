@@ -13,7 +13,7 @@ class WashingBayAdmin(admin.ModelAdmin):
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ['name', 'model', 'vehicle_make']
+    list_display = ('id', 'brand', 'model', 'year', 'color', 'price')
 
 @admin.register(CarBrand)
 class CarBrandAdmin(admin.ModelAdmin):
