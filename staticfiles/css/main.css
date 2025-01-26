@@ -1,5 +1,6 @@
 /* Search box */
 .search-box {
+position: relative;
   width: 50vw;
   justify-self: center;
 }
