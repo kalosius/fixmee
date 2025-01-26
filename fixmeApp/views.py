@@ -196,7 +196,6 @@ def map_view(request):
     return render(request, 'map_template.html', context)
 
 
-
 # search form
 def search(request):
     query = request.GET.get('q')
