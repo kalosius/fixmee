@@ -57,6 +57,7 @@ class Car(models.Model):
     price = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
+
 class Message(models.Model):
     mechanic = models.ForeignKey(Mechanic, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

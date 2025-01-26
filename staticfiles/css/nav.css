@@ -1,189 +1,133 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
 }
 
 /* bootstrap css */
-.container-fluid{
-    padding-left: 23% !important;
+.container-fluid {
+  padding-left: 23% !important;
 }
 
-.navbar{
-    /* background-color: #141414 !important; */
-border-bottom: 1px solid black ;
-color: white !important;
+.navbar {
+  border-bottom: 1px solid black;
+  color: white !important;
 }
-
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    width: 100vw;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  width: 100vw;
 }
 
-
 .sidenav {
-    height: 100%;
-    width: 20% !important; 
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #141414;
-    padding-top: 20px;
-    transition: 0.5s;
+  height: 100%;
+  width: 20% !important;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #141414;
+  padding-top: 20px;
+  transition: 0.5s;
 }
 
 .sidenav h2 {
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 30px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .sidenav a {
-    padding: 15px 20px;
-    padding-left: 30px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #ffffff;
-    display: block;
-    transition: all 0.3s ease-in-out;
+  padding: 15px 20px;
+  padding-left: 30px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  transition: all 0.3s ease-in-out;
 }
 
 .sidenav a:hover {
-    /* background-color: #575757; */
-    color: #CCBA72;
-    font-size: bold;
-    transform: translateX(8%);
+  color: #ccba72;
+  font-size: bold;
+  transform: translateX(8%);
 }
 
-.sidenav i{
-    /* border: 1px solid red; */
-    margin-right: 10px;
+.sidenav i {
+  margin-right: 10px;
 }
 
 /* Main content */
 main {
-    /* margin-left: 20%; */
-    padding: 20px;
-    background-color: #fff;
-    /* height: 100vh; */
-    color: #212121;
-}
-
-main h1 {
-    font-size: 36px;
+  padding-top: 1rem;
+  color: #212121;
 }
 
 main p {
-    font-size: 18px;
-    color: #212121;
+  font-size: 1rem;
+  color: #212121;
 }
-
-
-.first{
-    margin-left: 20%;
-}
-
-/* .second{ */
-    /* margin-left: 20%; */
-    /* width: 100vw; */
-    /* overflow-x: hidden; */
-   
-/* } */
-
-/* .min{
-        display: flex;
-        /* border: 1px solid red; */
-/* }
-
-
-.min div{
-    margin: 20px;
-    flex-basis: 50%;
-    
-}
-
-.min img{
-    width: 100%;
-} */ 
-
-
-
-
-
-
-
 
 
 /* Responsive design */
 
 @media screen and (max-width: 768px) {
-    .sidenav {
-        width: 100px;
-    }
-    .sidenav a {
-        font-size: 14px;
-        padding: 10px;
-    }
-    main {
-        margin-left: 100px;
-    }
+  .sidenav {
+    width: 100px;
+  }
+  .sidenav a {
+    font-size: 14px;
+    padding: 10px;
+  }
+  main {
+    margin-left: 100px;
+  }
 }
-
-
 
 /* Contact Css */
-.contacthead{
-    text-align: center;
-    padding-top: 3%;
-    margin-bottom: 5%;
-
+.contacthead {
+  text-align: center;
+  padding-top: 3%;
+  margin-bottom: 5%;
 }
 
-.contact-form{
-    /* border: 1px solid red; */
-    height: 80vh;
-    padding-left: 15%;
-    padding-top: 30px;
-    
-
+.contact-form {
+  /* border: 1px solid red; */
+  height: 80vh;
+  padding-left: 15%;
+  padding-top: 30px;
 }
 
-.contact-form form label{
-    font-size: 20px;
-    /* border: 1px solid red; */
-
+.contact-form form label {
+  font-size: 20px;
+  /* border: 1px solid red; */
 }
 
-.contact-form form input, .contact-form form textarea{
-    display: block;
-    width: 50%;
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border: 1px solid #0088BD;
+.contact-form form input,
+.contact-form form textarea {
+  display: block;
+  width: 50%;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #0088bd;
 }
 
-.contact-form form button{
-    padding: 10px 30px;
-    border-radius: 10px;
-    border: none;
-    background-color:#0088BD;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-   
-
+.contact-form form button {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #0088bd;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-
-.contact-form form input:focus, .contact-form form textarea:focus{
-    border: 1px solid #CCBA72;
-    outline: none;
+.contact-form form input:focus,
+.contact-form form textarea:focus {
+  border: 1px solid #ccba72;
+  outline: none;
 }
-
-
