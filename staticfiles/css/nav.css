@@ -59,13 +59,13 @@ body {
   margin-right: 10px;
 }
 
-/* Main content */
-main {
-  padding-top: 1rem;
-  color: #212121;
-}
 
-main p {
-  font-size: 1rem;
-  color: #212121;
+/* All the responsive design for the pages */
+
+@media screen and (max-width: 375px) {
+  .sidenav {
+    display: none;
+    width: 80vw !important;
+  }
+
 }

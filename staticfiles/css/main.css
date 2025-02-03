@@ -1,3 +1,16 @@
+/* Main content */
+main {
+  padding-top: 1rem;
+  color: #212121;
+}
+
+main p {
+  font-size: 1rem;
+  color: #212121;
+}
+
+
+
 /* Search box */
 .search-box {
 position: relative;
@@ -116,4 +129,102 @@ h2 {
   margin-top: 20px;
   font-size: 1.5em;
   color: #333;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  /* bootstrap css */
+.container-fluid {
+  padding-left: 0 !important;
+  margin: 10%;
+}
+
+
+  .sidenav {
+    display: none;
+    width: 80vw !important;
+  }
+
+  main {
+    padding-top: 2rem;
+  }
+  
+  main p {
+    font-size: 18px;
+    color: #212121;
+    margin-top: 10px;
+  }
+
+  /* Welcome and input */
+  .welcome {
+    text-align: left;
+  }
+
+  .welcome h1 {
+  font-size: 25px;
+  
+}
+
+
+
+/* Search box */
+.search-box {
+  width: 90vw;
+}
+
+.search-box form input[type="search"] {
+  padding: 10px 10px 10px 10px;
+}
+
+/* .search-box form input[type="search"]:focus {
+  border-color: green;
+  outline: none;
+  color: #212121;
+}
+
+.search-box form button i {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-110%);
+  color: #0098d3;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+
+/* form */
+.frm {
+  margin-top: 10%;
+  text-align: left;
+}
+
+form .inputfields input,
+select {
+  display: block;
+  padding: 10px 20px;
+  margin-top: 5%;
+  width: 100%;
+}
+
+
+.inputfields button {
+  width: 100%;
+  padding:  8px 18px;
+  margin-top: 5%;
+  font-size: 20px;
+}
+
+select {
+  cursor: pointer;
+}
+
+.check {
+  margin-top: 30px;
+}
+
+
+  
+  
 }
