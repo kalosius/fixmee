@@ -58,14 +58,3 @@ body {
 .sidenav i {
   margin-right: 10px;
 }
-
-
-/* All the responsive design for the pages */
-
-@media screen and (max-width: 375px) {
-  .sidenav {
-    display: none;
-    width: 80vw !important;
-  }
-
-}

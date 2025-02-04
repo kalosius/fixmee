@@ -9,11 +9,9 @@ main p {
   color: #212121;
 }
 
-
-
 /* Search box */
 .search-box {
-position: relative;
+  position: relative;
   width: 50vw;
   justify-self: center;
 }
@@ -36,7 +34,7 @@ position: relative;
   position: absolute;
   right: 30px;
   top: 50%;
-  transform: translateY(-110%);
+  transform: translateY(-50%);
   color: #0098d3;
   font-size: 16px;
   cursor: pointer;
@@ -70,7 +68,6 @@ select {
   border-radius: 10px;
   width: 30%;
 }
-
 
 .inputfields button {
   margin-right: 20px;
@@ -131,15 +128,12 @@ h2 {
   color: #333;
 }
 
-
-
 @media screen and (max-width: 768px) {
   /* bootstrap css */
-.container-fluid {
-  padding-left: 0 !important;
-  margin: 10%;
-}
-
+  .container-fluid {
+    padding-left: 0 !important;
+    margin: 10% !important;
+  }
 
   .sidenav {
     display: none;
@@ -149,7 +143,7 @@ h2 {
   main {
     padding-top: 2rem;
   }
-  
+
   main p {
     font-size: 18px;
     color: #212121;
@@ -162,69 +156,44 @@ h2 {
   }
 
   .welcome h1 {
-  font-size: 25px;
-  
-}
+    font-size: 25px;
+  }
 
+  /* Search box */
+  .search-box {
+    width: 90vw;
+  }
 
+  .search-box form input[type="search"] {
+    padding: 10px 10px 10px 10px;
+  }
 
-/* Search box */
-.search-box {
-  width: 90vw;
-}
+  /* form */
+  .frm {
+    margin-top: 10%;
+    text-align: left;
+  }
 
-.search-box form input[type="search"] {
-  padding: 10px 10px 10px 10px;
-}
+  form .inputfields input,
+  select {
+    display: block;
+    padding: 10px 20px;
+    margin-top: 5%;
+    width: 100%;
+  }
 
-/* .search-box form input[type="search"]:focus {
-  border-color: green;
-  outline: none;
-  color: #212121;
-}
+  .inputfields button {
+    width: 100%;
+    padding: 8px 18px;
+    margin-top: 5%;
+    font-size: 20px;
+  }
 
-.search-box form button i {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-110%);
-  color: #0098d3;
-  font-size: 16px;
-  cursor: pointer;
-} */
+  select {
+    cursor: pointer;
+  }
 
-
-/* form */
-.frm {
-  margin-top: 10%;
-  text-align: left;
-}
-
-form .inputfields input,
-select {
-  display: block;
-  padding: 10px 20px;
-  margin-top: 5%;
-  width: 100%;
-}
-
-
-.inputfields button {
-  width: 100%;
-  padding:  8px 18px;
-  margin-top: 5%;
-  font-size: 20px;
-}
-
-select {
-  cursor: pointer;
-}
-
-.check {
-  margin-top: 30px;
-}
-
-
-  
-  
+  .check {
+    margin-top: 30px;
+  }
 }
