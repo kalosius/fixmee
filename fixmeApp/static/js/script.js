@@ -1,6 +1,10 @@
 let sidenave = document.querySelector('.sidenav');
 let sidedisplay = document.querySelector('#sidedisplay');
 let sideclose = document.createElement('button');
+//at media screen above768px the sideclose should display
+if (window.matchMedia('(min-width: 768px)').matches) {
+    sideclose.style.display = 'none';
+}
 sideclose.textContent = 'X';
 sideclose.style.position = 'absolute';
 sideclose.style.top = '10px';
@@ -21,3 +25,5 @@ sidedisplay.addEventListener('click', function() {
 sideclose.addEventListener('click', function() {
     sidenave.style.display = 'none';
 });
+
+
