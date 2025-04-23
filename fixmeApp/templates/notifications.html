@@ -1,17 +1,16 @@
-
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-header">
-            <center><h2>Notifications</h2></center>
+<div class="max-w-4xl mx-auto mt-10 px-4">
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden">
+        <div class="bg-gray-100 px-6 py-4 border-b">
+            <h2 class="text-2xl font-semibold text-center text-gray-800">Notifications</h2>
         </div>
-        <div class="card-body">
-            <ul class="list-group">
+        <div class="p-6">
+            <ul class="space-y-4">
                 {% for message in messages %}
-                    <li class="list-group-item">
-                        <strong>{{ message.user.username }}:</strong> {{ message.content }}
-                        <br><small>{{ message.timestamp }}</small>
+                    <li class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                        <p><strong class="text-gray-800">{{ message.user.username }}:</strong> {{ message.content }}</p>
+                        <p class="text-sm text-gray-500 mt-1">{{ message.timestamp }}</p>
                     </li>
                 {% endfor %}
             </ul>

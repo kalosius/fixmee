@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-    <h1>Car Details - {{ brand_name }}</h1>
-</header>
-<main>
-    <section id="car-info">
-        <h2>Basic Information</h2>
-        <p><strong>Make:</strong> {{ car.brand.brand_name }}</p>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Year:</strong> {{ car.year }}</p>
-        <p><strong>Color:</strong> {{ car.color }}</p>
-    </section>
-    <section id="car-specs">
-        <h2>Specifications</h2>
-        <p><strong>Engine:</strong> {{ car.engine }}</p>
-        <p><strong>Transmission:</strong> {{ car.transmission }}</p>
-        <p><strong>Fuel Type:</strong> {{ car.fuel_type }}</p>
-        <p><strong>Mileage:</strong> {{ car.mileage }}</p>
-    </section>
-    <section id="car-features">
-        <h2>Features</h2>
-        <ul>
-            <!-- Loop through car features -->
-            {% for feature in car.features %}
-            <li>{{ feature }}</li>
-            {% endfor %}
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <header class="mb-6 border-b pb-4">
+      <h1 class="text-3xl font-bold text-center text-gray-800">Car Details - {{ brand_name }}</h1>
+    </header>
+
+    <main class="space-y-6">
+      <section id="car-info">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Basic Information</h2>
+        <p><span class="font-medium">Make:</span> {{ car.brand.brand_name }}</p>
+        <p><span class="font-medium">Model:</span> {{ car.model }}</p>
+        <p><span class="font-medium">Year:</span> {{ car.year }}</p>
+        <p><span class="font-medium">Color:</span> {{ car.color }}</p>
+      </section>
+
+      <section id="car-specs">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Specifications</h2>
+        <p><span class="font-medium">Engine:</span> {{ car.engine }}</p>
+        <p><span class="font-medium">Transmission:</span> {{ car.transmission }}</p>
+        <p><span class="font-medium">Fuel Type:</span> {{ car.fuel_type }}</p>
+        <p><span class="font-medium">Mileage:</span> {{ car.mileage }}</p>
+      </section>
+
+      <section id="car-features">
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Features</h2>
+        <ul class="list-disc list-inside text-gray-800">
+          {% for feature in car.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
         </ul>
-    </section>
-</main>
+      </section>
+    </main>
+  </div>
+</div>
 {% endblock %}

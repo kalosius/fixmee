@@ -2,30 +2,31 @@
 {% block content %}
 {% load static %}
 
-   <br>
-    <center><h1>Washing Bays</h1></center>
+<div class="max-w-6xl mx-auto px-4 mt-10">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Washing Bays</h1>
 
-    <br><br>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Description</th>
-                <th>Created At</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for bay in washingbay %}
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white shadow-md rounded-xl overflow-hidden">
+            <thead class="bg-gray-100 text-gray-700 text-left text-sm uppercase">
                 <tr>
-                    <td>{{ bay.name }}</td>
-                    <td>{{ bay.location }}</td>
-                    <td>{{ bay.description }}</td>
-                    <td>{{ bay.created_at }}</td>
+                    <th class="px-6 py-4">Name</th>
+                    <th class="px-6 py-4">Location</th>
+                    <th class="px-6 py-4">Description</th>
+                    <th class="px-6 py-4">Created At</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="divide-y divide-gray-200 text-gray-700">
+                {% for bay in washingbay %}
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="px-6 py-4">{{ bay.name }}</td>
+                    <td class="px-6 py-4">{{ bay.location }}</td>
+                    <td class="px-6 py-4">{{ bay.description }}</td>
+                    <td class="px-6 py-4">{{ bay.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,42 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-header">
-            <center><h2>{{ mechanic.name }}</h2></center>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-4 col-12">
-                    {% if mechanic.dis_img %}
-                        <img src="{{ mechanic.dis_img.url }}" class="img-fluid" alt="{{ mechanic.name }}">
-                    {% else %}
-                        <img src="{% static 'images/default_mechanic.jpg' %}" class="img-fluid" alt="{{ mechanic.name }}">
-                    {% endif %}
-                </div>
-                <div class="col-md-8 col-12">
-                    <p><strong>Location:</strong> {{ mechanic.location }}</p>
-                    <p><strong>Phone:</strong> {{ mechanic.phone }}</p>
-                    <p><strong>Email:</strong> {{ mechanic.email }}</p>
-                    <p><strong>Experience:</strong> {{ mechanic.experience }} years</p>
-                    <p><strong>Bio:</strong> {{ mechanic.bio }}</p>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-6 col-12 mb-2">
-                    <a href="https://wa.me/{{ mechanic.phone }}" class="btn btn-success btn-block" target="_blank">
-                        Chat on WhatsApp
-                    </a>
-                </div>
-                <div class="col-md-6 col-12">
-                    <a href="{% url 'chat_with_mechanic' mechanic.id %}" class="btn btn-primary btn-block">
-                        Chat within the App
-                    </a>
-                </div>
-            </div>
-        </div>
+
+<div class="max-w-5xl mx-auto px-4 py-8">
+  <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    
+    <div class="bg-gray-100 py-4">
+      <h2 class="text-2xl font-bold text-center text-gray-800">{{ mechanic.name }}</h2>
     </div>
+
+    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="col-span-1 flex justify-center">
+        {% if mechanic.dis_img %}
+          <img src="{{ mechanic.dis_img.url }}" alt="{{ mechanic.name }}" class="w-full h-auto rounded-lg object-cover">
+        {% else %}
+          <img src="{% static 'images/default_mechanic.jpg' %}" alt="{{ mechanic.name }}" class="w-full h-auto rounded-lg object-cover">
+        {% endif %}
+      </div>
+      
+      <div class="md:col-span-2 space-y-3">
+        <p><span class="font-semibold">Location:</span> {{ mechanic.location }}</p>
+        <p><span class="font-semibold">Phone:</span> {{ mechanic.phone }}</p>
+        <p><span class="font-semibold">Email:</span> {{ mechanic.email }}</p>
+        <p><span class="font-semibold">Experience:</span> {{ mechanic.experience }} years</p>
+        <p><span class="font-semibold">Bio:</span> {{ mechanic.bio }}</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 pt-2">
+      <a href="https://wa.me/{{ mechanic.phone }}" target="_blank" class="w-full text-center bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md">
+        Chat on WhatsApp
+      </a>
+      <a href="{% url 'chat_with_mechanic' mechanic.id %}" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">
+        Chat within the App
+      </a>
+    </div>
+  </div>
 </div>
-<br>
+
 {% endblock %}

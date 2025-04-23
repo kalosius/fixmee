@@ -1,37 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <div>
-        <br><br>
-        <center><h1>All Mechanics</h1></center>
-    </div>
-
-    <br><br>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Experience</th>
-                <th>Bio</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for mechanic in mechanic %}
-                <tr>
-                    <td><a href="{% url 'about_mechanic' mechanic.id %}">{{ mechanic.name }}</a></td>
-                    <td>{{ mechanic.location }}</td>
-                    <td>{{ mechanic.phone }}</td>
-                    <td>{{ mechanic.email }}</td>
-                    <td>{{ mechanic.experience }} years</td>
-                    <td>{{ mechanic.bio }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center mb-8">All Mechanics</h1>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Name</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Location</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Phone</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Email</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Experience</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Bio</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        {% for mechanic in mechanic %}
+        <tr class="hover:bg-gray-50">
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600 hover:underline">
+            <a href="{% url 'about_mechanic' mechanic.id %}">{{ mechanic.name }}</a>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ mechanic.location }}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ mechanic.phone }}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ mechanic.email }}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{{ mechanic.experience }} years</td>
+          <td class="px-6 py-4 text-sm text-gray-600">{{ mechanic.bio }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-
+  </div>
+</div>
 
 {% endblock %}
