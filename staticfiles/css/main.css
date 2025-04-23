@@ -1,4 +1,4 @@
-/* Main content */
+/* Main content
 main {
   padding-top: 1rem;
   color: #212121;
@@ -7,10 +7,10 @@ main {
 main p {
   font-size: 1rem;
   color: #212121;
-}
+} */
 
 /* Search box */
-.search-box {
+/* .search-box {
   position: relative;
   width: 50vw;
   justify-self: center;
@@ -38,10 +38,10 @@ main p {
   color: #0098d3;
   font-size: 16px;
   cursor: pointer;
-}
+} */
 
 /* Welcome and input */
-.welcome {
+/* .welcome {
   text-align: center;
 }
 
@@ -56,7 +56,7 @@ p {
 }
 
 /* form */
-.frm {
+/* .frm {
   margin-top: 5%;
   text-align: center;
 }
@@ -77,23 +77,22 @@ select {
   border: none;
   color: white;
   cursor: pointer;
-}
-
+} */
+/* 
 select {
   cursor: pointer;
-}
+} */
 
-.check {
+/* .check {
   margin-top: 30px;
-}
-
+} */
 /* Custom CSS for repair location page */
-.container {
+/* .container {
   max-width: 1200px;
   margin: 0 auto;
-}
+} 
 
-#map {
+/* #map {
   border: 1px solid #ddd;
   border-radius: 5px;
 }
@@ -126,11 +125,11 @@ h2 {
   margin-top: 20px;
   font-size: 1.5em;
   color: #333;
-}
+} */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   /* bootstrap css */
-  .container-fluid {
+  /* .container-fluid {
     padding-left: 0 !important;
     margin: 10% !important;
   }
@@ -142,34 +141,34 @@ h2 {
 
   main {
     padding-top: 2rem;
-  }
+  } */
 
-  main p {
+  /* main p {
     font-size: 18px;
     color: #212121;
     margin-top: 10px;
-  }
+  } */
 
   /* Welcome and input */
-  .welcome {
+  /* .welcome {
     text-align: left;
   }
 
   .welcome h1 {
     font-size: 25px;
-  }
+  } */
 
   /* Search box */
-  .search-box {
+  /* .search-box {
     width: 90vw;
   }
 
   .search-box form input[type="search"] {
     padding: 10px 10px 10px 10px;
-  }
+  } */
 
   /* form */
-  .frm {
+  /* .frm {
     margin-top: 10%;
     text-align: left;
   }
@@ -196,4 +195,4 @@ h2 {
   .check {
     margin-top: 30px;
   }
-}
+} */
