@@ -15,9 +15,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://fixme-coc6.onrender.com', 'fixme-coc6.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://fixme-coc6.onrender.com', 'fixme-coc6.onrender.com', 'localhost', '127.0.0.1', '13.60.186.172', '172.31.37.12', 'ec2-13-60-186-172.eu-north-1.compute.amazonaws.com']
 
 # Application definition
 INSTALLED_APPS = [
